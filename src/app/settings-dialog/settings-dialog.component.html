@@ -1,0 +1,38 @@
+<div mat-dialog-title>Settings</div>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content>
+    <div mat-dialog-title>Player 1</div>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name1">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Time (in s)</mat-label>
+      <input matInput formControlName="time1">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Increment (in s)</mat-label>
+      <input matInput formControlName="increment1">
+    </mat-form-field>
+    <br>
+    <div mat-dialog-title>Player 2</div>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name2">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Time (in s)</mat-label>
+      <input matInput formControlName="time2">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Increment (in s)</mat-label>
+      <input matInput formControlName="increment2">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button type="submit">Ok</button>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+  </div>
+  <br>
+  <div>Icons from https://icons8.com! Check it out.</div>
+</form>

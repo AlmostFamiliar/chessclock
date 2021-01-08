@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {SettingsDialogComponent} from './settings-dialog/settings-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'chessclock';
+
+  constructor(public dialog: MatDialog) {
+  }
+
+
+  openSettings() {
+    const dialogRef = this.dialog.open(SettingsDialogComponent, {
+    });
+  }
 }

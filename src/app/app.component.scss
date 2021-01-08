@@ -1,0 +1,20 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.app-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  height: 100%;
+}
+
+.app-content-size {
+  flex: 1;
+}
+
+.toolbar-style{
+  background-color: #744d25;
+}

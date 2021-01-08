@@ -1,0 +1,14 @@
+<div class="card-container">
+  <mat-card class="rotate" (click)="pressClock('player1')" [class.activeTimer]="player1().isPlaying">
+    <mat-card-title>{{player1().name}}</mat-card-title>
+    <mat-card-content>
+      <div class="timer-text">{{player1().time | timer}}</div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card (click)="pressClock('player2')" [class.activeTimer]="player2().isPlaying">
+    <mat-card-title><span>{{player2().name}}</span></mat-card-title>
+    <mat-card-content>
+      <div class="timer-text" [class.warning-text]="player2().time < 10000">{{player2().time | timer}}</div>
+    </mat-card-content>
+  </mat-card>
+</div>

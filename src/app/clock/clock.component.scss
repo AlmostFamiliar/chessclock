@@ -1,0 +1,47 @@
+mat-card {
+  margin: 20px;
+  height: 100%;
+  background-color: #ddd;
+}
+
+mat-card-content {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.activeTimer {
+  color: white;
+  background-color: #3f51b5;
+}
+
+.warning-text {
+  color: #ec407a;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+@media only screen and (max-width: 550px) {
+  .timer-text {
+    text-align: center;
+    font-size: 7vh;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .timer-text {
+    text-align: center;
+    font-size: 10vh;
+  }
+}
