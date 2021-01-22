@@ -49,7 +49,7 @@ export class ClockComponent implements OnInit {
   }
 
   openDialog(playerName: string): void {
-    this.settings.initPlayers();
+    this.settings.restart();
     const dialogRef = this.dialog.open(GameOverDialogComponent, {
       width: '250px',
       data: playerName,

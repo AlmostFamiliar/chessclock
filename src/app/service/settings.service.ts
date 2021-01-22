@@ -16,7 +16,7 @@ export class SettingsService {
     this.initPlayers();
   }
 
-  initPlayers() {
+  private initPlayers() {
     const name1 = localStorage.getItem('name1') || 'Player 1';
     const time1 = +localStorage.getItem('time1') || 300000;
     const increment1 = +localStorage.getItem('increment1') || 0;
@@ -32,6 +32,10 @@ export class SettingsService {
     this._player1 = player1;
     this._player2 = player2;
     this._isStarted = false;
+  }
+
+  restart() {
+    this.initPlayers();
   }
 
   set isStarted(value: boolean) {

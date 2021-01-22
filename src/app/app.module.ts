@@ -18,6 +18,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { environment } from '../environments/environment';
     ClockComponent,
     GameOverDialogComponent,
     TimerPipe,
-    SettingsDialogComponent
+    SettingsDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
