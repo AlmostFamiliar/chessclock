@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {SettingsService} from '../service/settings.service';
 import {MatDialog} from '@angular/material/dialog';
 import {GameOverDialogComponent} from '../game-over-dialog/game-over-dialog.component';
+import {SettingsDialogComponent} from '../settings-dialog/settings-dialog.component';
+import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-clock',
@@ -9,7 +11,16 @@ import {GameOverDialogComponent} from '../game-over-dialog/game-over-dialog.comp
   styleUrls: ['./clock.component.scss']
 })
 export class ClockComponent implements OnInit {
+  isPaused = false;
 
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    console.log(event);
+    if (event.code.toUpperCase() === 'SPACE') {
+      this.settings.player1.startTimer();
+      this.settings.player2.startTimer();
+    }
+  }
 
   constructor(private settings: SettingsService, public dialog: MatDialog) {
   }
@@ -19,9 +30,15 @@ export class ClockComponent implements OnInit {
   }
 
   pressClock(player: string) {
+    this.isPaused = false;
     if (this.settings.isStarted) {
-      this.settings.player1.startTimer();
-      this.settings.player2.startTimer();
+      if (player === 'player1') {
+        this.settings.player1.startTimer();
+        this.settings.player2.stopTimer();
+      } else {
+        this.settings.player2.startTimer();
+        this.settings.player1.stopTimer();
+      }
     } else {
       this.startGame(player);
     }
@@ -65,5 +82,29 @@ export class ClockComponent implements OnInit {
 
   player2() {
     return this.settings.player2;
+  }
+
+  pause() {
+    this.isPaused = true;
+    this.settings.player1.stopTimer();
+    this.settings.player2.stopTimer();
+  }
+
+  openSettings() {
+    this.pause();
+    const dialogRef = this.dialog.open(SettingsDialogComponent, {});
+  }
+
+  restart() {
+    this.pause();
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: 'Restart Game?'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'OK') {
+        this.settings.restart();
+      }
+    });
   }
 }

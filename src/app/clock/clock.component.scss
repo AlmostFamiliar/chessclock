@@ -25,21 +25,38 @@ mat-card-content {
   color: #ec407a;
 }
 
+.spacer {
+  width: 5%;
+}
+
 .card-container {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
+.button-container {
+  display: flex;
+  justify-content: center;
+}
 
-@media only screen and (max-width: 550px) {
+.hint-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
   .timer-text {
     text-align: center;
     font-size: 7vh;
   }
+
+  .hint-container {
+    display: none;
+  }
 }
 
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 768px) {
   .timer-text {
     text-align: center;
     font-size: 10vh;

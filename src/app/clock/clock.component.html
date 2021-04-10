@@ -5,10 +5,28 @@
       <div class="timer-text">{{player1().time | timer}}</div>
     </mat-card-content>
   </mat-card>
+  <div class="button-container">
+    <button mat-icon-button class="example-icon"
+            (click)="restart()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <div class="spacer"></div>
+    <button mat-icon-button class="example-icon"
+            [color]="isPaused ? 'accent' : ''"
+            (click)="pause()">
+      <mat-icon>pause</mat-icon>
+    </button>
+    <div class="spacer"></div>
+    <button mat-icon-button class="example-icon"
+            (click)="openSettings()">
+      <mat-icon>settings</mat-icon>
+    </button>
+  </div>
   <mat-card (click)="pressClock('player2')" [class.activeTimer]="player2().isPlaying">
     <mat-card-title><span>{{player2().name}}</span></mat-card-title>
     <mat-card-content>
       <div class="timer-text" [class.warning-text]="player2().time < 10000">{{player2().time | timer}}</div>
     </mat-card-content>
   </mat-card>
+
 </div>

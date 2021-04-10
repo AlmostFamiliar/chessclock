@@ -16,19 +16,5 @@ export class AppComponent {
   }
 
 
-  openSettings() {
-    const dialogRef = this.dialog.open(SettingsDialogComponent, {});
-  }
 
-  restart() {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: 'Restart Game?'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result === 'OK') {
-        this.settingsService.restart();
-      }
-    });
-  }
 }

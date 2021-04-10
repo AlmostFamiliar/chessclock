@@ -23,9 +23,14 @@ export class Player {
         this._time = Date.now() - startTime;
       });
     } else {
-      clearInterval(this.timerRef);
-      this._time -= this._increment;
+      this.stopTimer();
     }
+  }
+
+  stopTimer() {
+    this._isPlaying = false;
+    clearInterval(this.timerRef);
+    this._time -= this._increment;
   }
 
   get time(): number {
