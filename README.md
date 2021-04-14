@@ -1,7 +1,8 @@
 # Chessclock
 
 This is a simple a app to play chess with your friend over the board. It is hosted at https://chessclock.net. 
-Feel free to check it out. :smiley:
+
+Feel free to check it out. Tipp: Also fun with Jenga! :smiley:
 
 The timecontrols are configurable in the settings.
 
